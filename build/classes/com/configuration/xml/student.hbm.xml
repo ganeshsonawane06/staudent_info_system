@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.bean.StudentRegistrationBean" table="student">
+    <id column="ID" name="id">
+      <generator class="assigned"/>
+    </id>
+    <property column="StudFName" name="sFName"/>
+    <property column="StudMName" name="sMName"/>
+    <property column="StudLName" name="sLName"/>
+    <property column="FathrFName" name="fFName"/>
+    <property column="FathrMName" name="fMName"/>
+    <property column="FathrLName" name="fLName"/>
+    <property column="MothrFName" name="mFName"/>
+    <property column="ContactNum" name="contactNumber"/>
+    <property column="EmergencyNum_1" name="emergencyContact_1"/>
+    <property column="EmergencyNum_2" name="emergencyContact_2"/>
+    <property column="EMail" name="email"/>
+    <property column="ParmanentAddress" name="permanentAddress"/>
+    <property column="LocalAddress" name="localAddress"/>
+    <property column="DOB" name="dob"/>
+    <property column="Age" name="age"/>
+    <property column="Gender" name="gender"/>
+    <property column="Desability" name="desability"/>
+    <property column="AadhaarNumber" name="aadhaarNumber"/>
+    <property column="Religion" name="religion"/>
+    <property column="Catagory" name="catagory"/>
+    <property column="Benificiary" name="benificiary"/>
+    <property column="UniversityOrBoard" name="universityOrBoard"/>
+    <property column="PreviousInstitution" name="previousInstitution"/>
+    <property column="AdmissionDate" name="admissionDate"/>
+    <property column="EourseEnrolled" name="courseEnrolled"/>
+    <property column="Stream" name="stream"/>
+    <property column="ClassYear" name="classYear"/>
+    <property column="Photo" name="image"/>
+  </class>
+</hibernate-mapping>

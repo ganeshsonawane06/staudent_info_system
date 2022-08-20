@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.bean.UnitTestScheduleBean" table="UnitTest">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="Department" name="department"/>
+    <property column="AcademicClass" name="academicClass"/>
+    <property column="TimeTable" length="1000" name="timeTable"/>
+    <!--<property name="secondYear" column="SecondYear"/>
+        <property name="thirdYear" column="ThirdYear"/>
+        <property name="finalYear" column="FinalYear"/>-->
+  </class>
+</hibernate-mapping>

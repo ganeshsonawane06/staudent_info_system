@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    
+
+<!-- ******************************** Drivermanager Data Source Class ******************************************** -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/collegemanagement?useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="password"/>
+    </bean>    
+    
+    
+    
+<!-- ********************************** Local Session Factory  Class***************************************** -->
+    <bean id="mySessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">  
+            <list>  
+                <value>/com/configuration/xml/login.hbm.xml</value>
+                <value>/com/configuration/xml/student.hbm.xml</value>
+                <value>/com/configuration/xml/faculty.hbm.xml</value>
+                <value>/com/configuration/xml/classtimetable.hbm.xml</value>
+                <value>/com/configuration/xml/guestlecture.hbm.xml</value>
+                <value>/com/configuration/xml/industrialtour.hbm.xml</value>
+                <value>/com/configuration/xml/universityexam.hbm.xml</value>
+                <value>/com/configuration/xml/unittest.hbm.xml</value>
+                <value>/com/configuration/xml/practicalexam.hbm.xml</value>
+                <value>/com/configuration/xml/library.hbm.xml</value>
+                <value>/com/configuration/xml/event.hbm.xml</value>
+            </list>  
+        </property>  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>   
+                <prop key="hibernate.pool_size">06</prop> 
+                <!--<prop key="hibernate.useSSL">false</prop>-->
+                <prop key="org.hibernate.flushMode">AUTO</prop>
+            </props>  
+        </property>  
+    </bean>
+    
+    
+    
+    <!-- ************************************ Hibernate Trensaction Manager Class ***************************************** -->  
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" autowire="byName">
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>
+
+    
+        
+                
+<!-- ************************************ Hibernate Template Class ***************************************** -->  
+    <bean id="template" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>
+    
+    
+    
+<!-- ************************************************************************************************** -->  
+    <bean id="connectionManager" class="com.daoImpl.ConnectionManager" autowire="byName"/>
+    <!--<bean id="client" class="com.client.Client">
+        <property name="template" ref="template"/>
+    </bean>-->
+    <!--<bean id="studentDao" class="com.daoImpl.StudentDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="facultyDao" class="com.daoImpl.FacultyDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="classTimeTableDao" class="com.daoImpl.ClassTimeTableDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="guestLectureTTDao" class="com.daoImpl.GuestLectureTTDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="industrialTourTTDao" class="com.daoImpl.IndustrialTourTTDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="universityExamDao" class="com.daoImpl.UniversityExamDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="unitTestDao" class="com.daoImpl.UnitTestDao">
+        <property name="template" ref="template"/>
+    </bean>
+    <bean id="practicalExamDao" class="com.daoImpl.PracticalExamDao">
+        <property name="template" ref="template"/>
+    </bean>-->
+    
+    
+    
+<!-- **************************************** Hibernate Template Connection Class **************************************** -->
+    <bean id="hibernateTemplateConnection" class="com.daoImpl.HibernateTemplateConnection">
+        <property name="template" ref="template"/>
+    </bean>
+</beans>

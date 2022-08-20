@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/collegemanagement</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.pool_size">06</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+                
+                <mapping resource="/com/configuration/xml/student.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/faculty.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/classtimetable.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/guestlecture.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/industrialtour.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/universityexam.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/unittest.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/practicalexam.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/library.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/event.hbm.xml"/>
+                <mapping resource="/com/configuration/xml/login.hbm.xml"/>
+        </session-factory>
+</hibernate-configuration>

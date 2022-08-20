@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.bean.EventBean" table="Event">
+    <id column="EventType" name="eventType">
+      <generator class="assigned"/>
+    </id>
+    <property column="EventName" name="eventName"/>
+    <property column="OrganizedBy" name="organizedBy"/>
+    <property column="EventDate" name="eventDate"/>
+    <property column="EventTime" name="eventTime"/>
+    <property column="ParticipatingDepartments" name="participatingDepartments"/>
+    <property column="Duration" name="duration"/>
+    <property column="Location" name="location"/>
+  </class>
+</hibernate-mapping>

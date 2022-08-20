@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.bean.FacultyRegistrationBean" table="faculty">
+    <id column="ID" name="id">
+      <generator class="assigned"/>
+    </id>
+    <property column="FirstName" name="firstName"/>
+    <property column="MiddleName" name="middleName"/>
+    <property column="LastName" name="lastName"/>
+    <property column="ContactNumber" name="contactNumber"/>
+    <property column="EMail" name="emailId"/>
+    <property column="PermanentAddress" name="permanentAddress"/>
+    <property column="LocalAddress" name="localAddress"/>
+    <property column="DOB" name="dob"/>
+    <property column="Age" name="age"/>
+    <property column="Gender" name="gender"/>
+    <property column="Desability" name="desability"/>
+    <property column="DesabilityDetails" name="desabilityDetails"/>
+    <property column="AadharNumber" name="aadharNumber"/>
+    <property column="PANNumber" name="panNumber"/>
+    <property column="Degree" name="degree"/>
+    <property column="Specialization" name="specialization"/>
+    <property column="College" name="college"/>
+    <property column="University" name="university"/>
+    <property column="Position" name="position"/>
+    <list cascade="all" name="academicDetails">
+      <key column="academic_id"/>
+      <list-index column="assigned"/>
+      <one-to-many class="com.bean.AcademicDetailsBean"/>
+    </list>
+    <property column="Image" name="image"/>
+    <property column="Remark" name="remark"/>
+  </class>
+  <class name="com.bean.AcademicDetailsBean" table="AcademicDetails">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="UniversityOrBoard" name="universityOrBoard"/>
+    <property column="SchoolOrinstitution" name="schoolOrinstitution"/>
+    <property column="Course" name="course"/>
+    <property column="PassingYear" name="passingYear"/>
+    <property column="PercentageOrGPA" name="percentageOrGPA"/>
+  </class>
+</hibernate-mapping>

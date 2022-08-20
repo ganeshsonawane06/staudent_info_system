@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--<hibernate-mapping>
+  <class name="com.bean.ClassTimeTableBean" table="ClassTimetable">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    
+    <property column="Department" name="department"/>
+    <property column="AcademicClass" name="academicClass"/>
+    <map cascade="all" name="classTimeTable" table="ClassTimeTableMap">
+      <key column="id"/>
+      <map-key column="Time" type="string"/>
+      <element column="Days" type="string"/>
+      <one-to-many class="com.bean.utility.MapValueListBean"/>
+    </map>
+  </class>
+  
+  <class name="com.bean.utility.MapValueListBean" table="MapValueList">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    
+    <list cascade="all" name="mapValueList">
+      <key column="ListId"/>
+      <index column="ListIndex"/>
+      <element column="Days" type="string"/>
+    </list>
+  </class>
+  
+  <class name="com.bean.utility.MapValue" table="MapValue">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    <property column="MapValue" name="mapValue"/>
+  </class>
+</hibernate-mapping>-->
+
+<hibernate-mapping>
+  <class name="com.bean.ClassTimeTableBean" table="ClassTimetable">
+    <id column="ID" name="id">
+      <generator class="increment"/>
+    </id>
+    
+    <property column="Department" name="department"/>
+    <property column="AcademicClass" name="academicClass"/>
+    <property column="ClassTimeTable" name="classTimeTable" type="text"/>
+  </class>
+</hibernate-mapping>
